@@ -4,6 +4,10 @@
 		<view>
 			<text class="title">{{title}}</text>
 		</view>
+
+		<view v-for="item in list" :key="item.id" :data-name="mapName(item)">
+			{{ item.name }}
+		</view>
 	</view>
 </template>
 
@@ -11,14 +15,30 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				list: [
+					{
+						id: 1,
+						name: 'a'
+					},
+					{
+						id: 2,
+						name: 'b'
+					},
+					{
+						id: 3,
+						name: 'c'
+					}
+				]
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-
+			mapName(item) {
+				return 'u-' + item.name
+			}
 		}
 	}
 </script>
